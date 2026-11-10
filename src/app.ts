@@ -1,4 +1,5 @@
 import express from "express";
+import { notFound } from "./middlewares/notFound";
 
 const app = express();
 
@@ -8,8 +9,6 @@ app.get("/api/health", (_req, res) => {
     res.json({ status: "ok" });
 });
 
-app.use((_req, res) => {
-    res.status(404).json({ erro : "rota nao encontrada"});
-});
+app.use(notFound)
 
 export default app;
