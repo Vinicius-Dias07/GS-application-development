@@ -37,9 +37,8 @@ Pré-requisitos: Node 24 e um MongoDB (ex.: via Podman).
 podman run -d --name agro-mongo -p 27017:27017 docker.io/library/mongo:7
 
 # 2. Backend (porta 3000). Crie backend/.env com:
-#    PORT=3000
-#    MONGO_URI=mongodb://localhost:27017/agro
-cd backend && npm install && npm run dev
+#    (copie de backend/.env.example: cp .env.example .env)
+cd backend && cp -n .env.example .env && npm install && npm run dev
 
 # 3. Frontend (porta 5173), em outro terminal
 cd frontend && npm install && npm run dev
@@ -64,6 +63,14 @@ no back (CORS libera o cabeçalho `x-usuario-id`).
 
 Rotas inexistentes retornam 404 e erros de validação retornam 400 com
 `{ "erro": "mensagem" }`.
+
+## Indicadores (página "Indicadores")
+
+1. **Quantidade total de registros:** número de plantios do agricultor logado.
+2. **Resumo por categoria:** plantios agrupados **por cultura** e **por status
+   da safra** (plantado, colheita próxima, pronto para colher, colhido).
+3. **Extras:** produção esperada total (kg) e retorno estimado total (R$),
+   somando a previsão de cada plantio (valores simulados).
 
 ## Regras de negócio
 
