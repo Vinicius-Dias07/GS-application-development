@@ -1,10 +1,15 @@
 import { useState, type FormEvent } from "react";
 import { entrar } from "../services/authService";
 import { useAuth } from "../context/auth-context";
+import Apresentacao from "../components/Apresentacao";
 
 const EMAIL_MAX = 254;
 
-export default function Login() {
+interface Props {
+  aoTrocar: () => void; // vai para a tela de Cadastro
+}
+
+export default function Login({ aoTrocar }: Props) {
   const { login } = useAuth();
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
@@ -27,6 +32,7 @@ export default function Login() {
 
   return (
     <main>
+      <Apresentacao />
       <h1>Entrar</h1>
       <form onSubmit={aoEnviar}>
         <label>
@@ -54,6 +60,12 @@ export default function Login() {
           {enviando ? "Entrando..." : "Entrar"}
         </button>
       </form>
+      <p>
+        Não tem conta?{" "}
+        <button type="button" onClick={aoTrocar}>
+          Criar conta
+        </button>
+      </p>
     </main>
   );
 }

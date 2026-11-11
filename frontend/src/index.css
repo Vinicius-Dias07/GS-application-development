@@ -39,3 +39,94 @@ button {
   color: #b00020;
   margin: 0;
 }
+
+main.largo {
+  max-width: 900px;
+}
+
+select {
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+.sucesso {
+  color: #1b6e2d;
+  margin: 0;
+}
+
+.aviso {
+  font-size: 0.9rem;
+  color: #5b6b5b;
+}
+
+.apresentacao {
+  background: #e6efe0;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.abas {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.abas button.ativa {
+  background: #2e7d32;
+  color: #fff;
+}
+
+.linha {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.linha label:first-child {
+  flex: 1;
+}
+
+.tabela-rolavel {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 0.5rem;
+  border-bottom: 1px solid #cfd8cc;
+  white-space: nowrap;
+}
+
+.cartoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.cartao {
+  background: #fff;
+  border: 1px solid #cfd8cc;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  display: flex;
+  flex-direction: column;
+  min-width: 160px;
+}
+
+.cartao strong {
+  font-size: 1.4rem;
+}

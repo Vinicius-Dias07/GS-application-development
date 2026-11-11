@@ -1,16 +1,44 @@
+import { useState } from "react";
 import { useAuth } from "../context/auth-context";
+import Apresentacao from "../components/Apresentacao";
+import Plantios from "./Plantios";
+import Indicadores from "./Indicadores";
 
-// Tela provisória: será substituída pelo painel de plantios
+type Aba = "inicio" | "plantios" | "indicadores";
+
+const ABAS: { id: Aba; rotulo: string }[] = [
+  { id: "inicio", rotulo: "Início" },
+  { id: "plantios", rotulo: "Plantios" },
+  { id: "indicadores", rotulo: "Indicadores" },
+];
+
 export default function Painel() {
   const { usuario, sair } = useAuth();
+  const [aba, setAba] = useState<Aba>("inicio");
 
   return (
-    <main>
-      <h1>Olá, {usuario?.nome}</h1>
-      <p>Você está logado como {usuario?.email}.</p>
-      <button type="button" onClick={sair}>
-        Sair
-      </button>
+    <main className="largo">
+      <header className="topo">
+        <span>Olá, {usuario?.nome}</span>
+        <button type="button" onClick={sair}>
+          Sair
+        </button>
+      </header>
+      <nav className="abas">
+        {ABAS.map((a) => (
+          <button
+            key={a.id}
+            type="button"
+            className={a.id === aba ? "ativa" : ""}
+            onClick={() => setAba(a.id)}
+          >
+            {a.rotulo}
+          </button>
+        ))}
+      </nav>
+      {aba === "inicio" && <Apresentacao />}
+      {aba === "plantios" && <Plantios />}
+      {aba === "indicadores" && <Indicadores />}
     </main>
   );
 }

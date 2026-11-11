@@ -1,11 +1,13 @@
 import express from "express";
 import authRoutes from "./routes/authRoutes";
+import plantioRoutes from "./routes/plantioRoutes";
+import { cors } from "./middlewares/cors";
 import { notFound } from "./middlewares/notFound";
 import { errorHandler } from "./middlewares/errorHandler";
-import { exigirUsuario } from "./middlewares/exigirUsuario";
 
 const app = express();
 
+app.use(cors);
 app.use(express.json());
 
 app.get("/api/health", (_req, res) => {
@@ -13,11 +15,7 @@ app.get("/api/health", (_req, res) => {
 });
 
 app.use("/api/auth", authRoutes);
-
-// Rota provisória da Etapa 5: remover quando as rotas de plantio usarem o middleware (Etapa 7)
-app.get("/api/teste-protegida", exigirUsuario, (_req, res) => {
-    res.json({ usuarioId: res.locals.usuarioId });
-});
+app.use("/api/plantios", plantioRoutes);
 
 app.use(notFound);
 app.use(errorHandler);
