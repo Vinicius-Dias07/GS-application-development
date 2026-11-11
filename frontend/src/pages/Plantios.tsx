@@ -158,7 +158,9 @@ export default function Plantios() {
                     <td>{formatarData(p.dataColheita)}</td>
                     <td>{formatarNumero(p.producaoEsperadaKg)}</td>
                     <td>{formatarMoeda(p.retornoEstimado)}</td>
-                    <td>{p.status}</td>
+                    <td>
+                      <span className={`selo selo-${p.status.replace(/ /g, "-")}`}>{p.status}</span>
+                    </td>
                   </tr>
                 ))}
               </tbody>

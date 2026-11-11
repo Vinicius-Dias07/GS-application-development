@@ -31,7 +31,7 @@ export default function Login({ aoTrocar }: Props) {
   }
 
   return (
-    <main>
+    <main className="auth">
       <Apresentacao />
       <h1>Entrar</h1>
       <form onSubmit={aoEnviar}>
@@ -62,7 +62,7 @@ export default function Login({ aoTrocar }: Props) {
       </form>
       <p>
         Não tem conta?{" "}
-        <button type="button" onClick={aoTrocar}>
+        <button type="button" className="link" onClick={aoTrocar}>
           Criar conta
         </button>
       </p>

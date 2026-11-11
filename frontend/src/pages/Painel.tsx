@@ -19,8 +19,9 @@ export default function Painel() {
   return (
     <main className="largo">
       <header className="topo">
-        <span>Olá, {usuario?.nome}</span>
-        <button type="button" onClick={sair}>
+        <span className="marca">🌱 Painel de Plantio</span>
+        <span className="saudacao">Olá, {usuario?.nome}</span>
+        <button type="button" className="secundario" onClick={sair}>
           Sair
         </button>
       </header>
@@ -29,7 +30,7 @@ export default function Painel() {
           <button
             key={a.id}
             type="button"
-            className={a.id === aba ? "ativa" : ""}
+            className={a.id === aba ? "secundario ativa" : "secundario"}
             onClick={() => setAba(a.id)}
           >
             {a.rotulo}

@@ -42,7 +42,7 @@ export default function IndicadoresPagina() {
         <ul>
           {Object.entries(dados.porCultura).map(([cultura, qtd]) => (
             <li key={cultura}>
-              {rotuloCultura(cultura)}: {qtd}
+              {rotuloCultura(cultura)}: <strong>{qtd}</strong>
             </li>
           ))}
         </ul>
@@ -52,7 +52,7 @@ export default function IndicadoresPagina() {
       <ul>
         {Object.entries(dados.porStatus).map(([status, qtd]) => (
           <li key={status}>
-            {status}: {qtd}
+            {status}: <strong>{qtd}</strong>
           </li>
         ))}
       </ul>

@@ -33,7 +33,7 @@ export default function Cadastro({ aoTrocar }: Props) {
   }
 
   return (
-    <main>
+    <main className="auth">
       <Apresentacao />
       <h1>Criar conta</h1>
       <form onSubmit={aoEnviar}>
@@ -75,7 +75,7 @@ export default function Cadastro({ aoTrocar }: Props) {
       </form>
       <p>
         Já tem conta?{" "}
-        <button type="button" onClick={aoTrocar}>
+        <button type="button" className="link" onClick={aoTrocar}>
           Entrar
         </button>
       </p>
