@@ -1,0 +1,344 @@
+:root {
+  --verde: #2e7d32;
+  --verde-escuro: #1f5a23;
+  --verde-claro: #e8f2e4;
+  --fundo: #f5f8f3;
+  --superficie: #ffffff;
+  --texto: #1f2a1f;
+  --texto-suave: #5b6b5b;
+  --borda: #d5ded1;
+  --erro: #b00020;
+  --raio: 10px;
+  --sombra: 0 1px 3px rgba(31, 42, 31, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  margin: 0;
+  background: var(--fundo);
+  color: var(--texto);
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.25;
+  margin: 0 0 0.75rem;
+}
+
+h1 {
+  font-size: 1.6rem;
+}
+
+h2 {
+  font-size: 1.25rem;
+}
+
+h3 {
+  font-size: 1.05rem;
+  margin-top: 1.5rem;
+}
+
+/* ---------- layout ---------- */
+main {
+  max-width: 440px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+main.largo {
+  max-width: 920px;
+}
+
+main.auth form,
+main.largo section {
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+}
+
+main.auth form {
+  padding: 1.25rem;
+}
+
+main.largo section {
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+main.largo section form {
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+/* ---------- formulários ---------- */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+input,
+select {
+  padding: 0.6rem 0.7rem;
+  font-size: 1rem;
+  font-family: inherit;
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--texto);
+}
+
+input:focus,
+select:focus,
+button:focus-visible {
+  outline: 2px solid var(--verde);
+  outline-offset: 1px;
+}
+
+.linha {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.linha label:first-child {
+  flex: 1;
+}
+
+/* ---------- botões ---------- */
+button {
+  padding: 0.65rem 1rem;
+  font-size: 1rem;
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid var(--verde);
+  border-radius: 8px;
+  background: var(--verde);
+  color: #fff;
+  transition: background 0.15s;
+}
+
+button:hover:not(:disabled) {
+  background: var(--verde-escuro);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+button.secundario {
+  background: transparent;
+  color: var(--verde);
+}
+
+button.secundario:hover:not(:disabled) {
+  background: var(--verde-claro);
+}
+
+button.link {
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--verde);
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+button.link:hover:not(:disabled) {
+  background: none;
+  color: var(--verde-escuro);
+}
+
+/* ---------- mensagens ---------- */
+.erro,
+.sucesso {
+  margin: 0;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  font-size: 0.92rem;
+}
+
+.erro {
+  color: var(--erro);
+  background: #fdecee;
+}
+
+.sucesso {
+  color: var(--verde-escuro);
+  background: var(--verde-claro);
+}
+
+.aviso {
+  font-size: 0.88rem;
+  color: var(--texto-suave);
+}
+
+/* ---------- apresentação ---------- */
+.apresentacao {
+  background: var(--verde-claro);
+  border-left: 4px solid var(--verde);
+  border-radius: var(--raio);
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.apresentacao p {
+  margin: 0.5rem 0;
+}
+
+main.largo section.apresentacao {
+  border: none;
+  border-left: 4px solid var(--verde);
+  box-shadow: none;
+  background: var(--verde-claro);
+}
+
+/* ---------- topo e abas ---------- */
+.topo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.marca {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--verde-escuro);
+}
+
+.saudacao {
+  margin-left: auto;
+  color: var(--texto-suave);
+}
+
+.abas {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.abas button.ativa {
+  background: var(--verde);
+  color: #fff;
+}
+
+/* ---------- tabela ---------- */
+.tabela-rolavel {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 0.6rem 0.75rem;
+  border-bottom: 1px solid var(--borda);
+  white-space: nowrap;
+}
+
+th {
+  background: var(--verde-claro);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+tbody tr:hover {
+  background: #fafcf9;
+}
+
+/* ---------- selos de status ---------- */
+.selo {
+  display: inline-block;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  background: #e6e9e4;
+  color: #44503f;
+}
+
+.selo-plantado {
+  background: #e3effa;
+  color: #1b4f7c;
+}
+
+.selo-colheita-próxima {
+  background: #fff3d6;
+  color: #7a5200;
+}
+
+.selo-pronto-para-colher {
+  background: #d9f0dc;
+  color: #1b5e20;
+}
+
+/* ---------- indicadores ---------- */
+.cartoes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.cartao {
+  background: var(--verde-claro);
+  border-radius: var(--raio);
+  padding: 0.9rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.cartao span {
+  font-size: 0.88rem;
+  color: var(--texto-suave);
+}
+
+.cartao strong {
+  font-size: 1.5rem;
+  color: var(--verde-escuro);
+}
+
+ul {
+  padding-left: 1.2rem;
+  margin: 0.25rem 0;
+}
+
+li {
+  margin: 0.2rem 0;
+}
+
+@media (max-width: 520px) {
+  .topo {
+    flex-wrap: wrap;
+  }
+
+  .saudacao {
+    margin-left: 0;
+  }
+}
